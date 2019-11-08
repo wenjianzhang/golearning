@@ -15,9 +15,9 @@ const (
 )
 
 const (
-	Open    = 1 << iota //0001
-	Close               //0010
-	Pending             //0011
+	Readable  = 1 << iota //0001
+	Writable              //0010
+	Exectable             //0011
 )
 
 func TestConstantTry(t *testing.T) {
@@ -27,12 +27,12 @@ func TestConstantTry(t *testing.T) {
 
 func TestConstantTry1(t *testing.T) {
 	a := 6
-	t.Log(uint8(a), uint(Open), uint(Close), uint(Pending))
-	c := a & Open
+	t.Log(uint8(a), uint(Readable), uint(Writable), uint(Exectable))
+	c := a & Readable
 	t.Logf("第一行 - c 的值为 %d\n", c)
-	c = a & Close
+	c = a & Writable
 	t.Logf("第一行 - c 的值为 %d\n", c)
-	c = a & Pending
+	c = a & Exectable
 	t.Logf("第一行 - c 的值为 %d\n", c)
-	t.Log(a&Open == Open, a&Close == Close, a&Pending == Pending)
+	t.Log(a&Readable == Readable, a&Writable == Writable, a&Exectable == Exectable)
 }
