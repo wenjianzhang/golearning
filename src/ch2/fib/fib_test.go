@@ -28,3 +28,16 @@ func TestFibList(t *testing.T) {
 	}
 	fmt.Println()
 }
+
+func TestExchang(t *testing.T) {
+	a := 1
+	b := 1
+	// 1
+	//tmp := a
+	//a = b
+	//b = tmp
+	//
+	// 2
+	a, b = b, a
+	t.Log(a, b)
+}
