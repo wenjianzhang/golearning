@@ -1,10 +1,11 @@
-package client
+package client1_test
 
 import (
-	"github.com/wenjianzhang/golearning/ch15/series"
+	"ch15/series"
 	"testing"
 )
 
 func TestPackage(t *testing.T) {
-	series.GetFibonacci(5)
+	t.Log(series.GetFibonacci(10))
+	t.Log(series.Square(5))
 }
