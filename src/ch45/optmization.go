@@ -3,6 +3,7 @@ package profiling
 import (
 	"encoding/json"
 	"strconv"
+	"strings"
 )
 
 func createRequest() string {
@@ -18,28 +19,28 @@ func createRequest() string {
 	return string(v)
 }
 
-//func processRequest(reqs []string) []string {
-//	reps := []string{}
-//	for _, req := range reqs {
-//		reqObj := &Request{}
-//		reqObj.UnmarshalJSON([]byte(req))
-//
-//		var buf strings.Builder
-//		for _, e := range reqObj.PayLoad {
-//			buf.WriteString(strconv.Itoa(e))
-//			buf.WriteString(",")
-//		}
-//		repObj := &Response{reqObj.TransactionID, buf.String()}
-//		repJson, err := repObj.MarshalJSON()
-//		if err != nil {
-//			panic(err)
-//		}
-//		reps = append(reps, string(repJson))
-//	}
-//	return reps
-//}
-
 func processRequest(reqs []string) []string {
+	reps := []string{}
+	for _, req := range reqs {
+		reqObj := &Request{}
+		reqObj.UnmarshalJSON([]byte(req))
+
+		var buf strings.Builder
+		for _, e := range reqObj.PayLoad {
+			buf.WriteString(strconv.Itoa(e))
+			buf.WriteString(",")
+		}
+		repObj := &Response{reqObj.TransactionID, buf.String()}
+		repJson, err := repObj.MarshalJSON()
+		if err != nil {
+			panic(err)
+		}
+		reps = append(reps, string(repJson))
+	}
+	return reps
+}
+
+func processRequestOld(reqs []string) []string {
 	reps := []string{}
 	for _, req := range reqs {
 		reqObj := &Request{}
