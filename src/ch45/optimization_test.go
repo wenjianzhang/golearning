@@ -14,6 +14,18 @@ func TestProcessRequest(t *testing.T) {
 	t.Log(reps[0])
 }
 
+//func BenchmarkProcessRequests(b *testing.B) {
+//
+//	reqs := []string{}
+//	reqs = append(reqs, createRequest())
+//	b.ResetTimer()
+//	for i := 0; i < b.N; i++ {
+//		_ = processRequest(reqs)
+//	}
+//	b.StopTimer()
+//
+//}
+
 func BenchmarkProcessRequest(b *testing.B) {
 
 	reqs := []string{}
@@ -21,18 +33,6 @@ func BenchmarkProcessRequest(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		_ = processRequest(reqs)
-	}
-	b.StopTimer()
-
-}
-
-func BenchmarkProcessRequestOld(b *testing.B) {
-
-	reqs := []string{}
-	reqs = append(reqs, createRequest())
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		_ = processRequestOld(reqs)
 	}
 	b.StopTimer()
 
