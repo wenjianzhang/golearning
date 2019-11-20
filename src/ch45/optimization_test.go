@@ -26,14 +26,14 @@ func BenchmarkProcessRequests(b *testing.B) {
 
 }
 
-func BenchmarkProcessRequestOld(b *testing.B) {
-
-	reqs := []string{}
-	reqs = append(reqs, createRequest())
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		_ = processRequestOld(reqs)
-	}
-	b.StopTimer()
-
-}
+//func BenchmarkProcessRequestOld(b *testing.B) {
+//
+//	reqs := []string{}
+//	reqs = append(reqs, createRequest())
+//	b.ResetTimer()
+//	for i := 0; i < b.N; i++ {
+//		_ = processRequestOld(reqs)
+//	}
+//	b.StopTimer()
+//
+//}
