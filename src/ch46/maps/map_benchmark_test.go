@@ -8,7 +8,7 @@ import (
 
 const (
 	NumOfReader = 10
-	NumOfWriter = 100
+	NumOfWriter = 1
 )
 
 type Map interface {
