@@ -55,3 +55,24 @@ func BenchmarkStringAdd(b *testing.B) {
 	}
 	b.StopTimer()
 }
+
+type data struct {
+	name string
+}
+
+func (p *data) print() {
+	fmt.Println("name", p.name)
+}
+
+type printer interface {
+	print()
+}
+
+func TestObjA(t *testing.T) {
+	d1 := data{"one"}
+	d1.print()
+
+	var in printer = &data{"two"}
+	in.print()
+	t.Log(&data{"two"})
+}
