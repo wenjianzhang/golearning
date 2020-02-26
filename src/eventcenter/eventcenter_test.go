@@ -67,7 +67,7 @@ func TestEventCenter(T *testing.T) {
 	eventCenter.Register(recover1)
 	eventCenter.Register(recover2)
 
-	eventCenter.Notify(Event{Msg: "hello go"})
+	eventCenter.Notify(Event{Msg: "hello go !"})
 
 	eventCenter.UNRegister(recover1)
 
